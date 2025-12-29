@@ -1,11 +1,27 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro'
+import Overview from "../components/Overview.astro";
+import Partners from "../components/Partners.astro";
+import Web3Features from "../components/Web3Features.astro";
+import Blockchains from "../components/Blockchains.astro";
+import Trade from "../components/Trade.astro";
+import AllInOneSection from "../components/AllInOneSection.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+<Hero />
+    <Overview />
+    <Partners />
+    <Web3Features />
+    <Blockchains />
+    <Trade />
+    <AllInOneSection />
 </Layout>
+
+<style>
+
+</style>

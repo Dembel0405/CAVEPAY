@@ -1,0 +1,434 @@
+---
+import itemBG1 from '../assets/itemBG1.png'
+import itemBG2 from '../assets/itemBG2.png'
+import itemBG3 from '../assets/itemBG3.png'
+import itemBG4 from '../assets/itemBG4.png'
+import Security from '../assets/security.png'
+import Access from '../assets/access.png'
+import UserExperience from '../assets/userExperience.png'
+import Speed from '../assets/speed.png'
+
+---
+
+<div class="overview">
+    <div class="left">
+        <div class="item1 scroll-fade" style={`background-image: url(${itemBG1.src})`}>
+            <div class="features">
+                <img src={Security.src} alt="Security" />
+                <h3 class="featuresTitle">Security</h3>
+            </div>
+            <h2 class="title">Secure throughout</h2>
+            <p class="subtitle">Enforcing multi-layered security through end-to-end encryption, dual-factor authentication and other sophisticated techniques.</p>
+        </div>
+        <div class="item3 scroll-fade" style={`background-image: url(${itemBG3.src})`}>
+            <div class="features">
+                <img src={UserExperience.src} alt="User Experience" />
+                <h3 class="featuresTitle">User Experience</h3>
+            </div>
+            <h2 class="title">Easy to Use</h2>
+            <p class="subtitle">Even first-time users can easily find their way around the CavePay Wallet, thanks to its clear and simple design.</p>
+        </div>
+    </div>
+    <div class="right">
+        <div class="item2 scroll-fade" style={`background-image: url(${itemBG2.src})`}>
+            <div class="features">
+                <img src={Access.src} alt="Security" />
+                <h3 class="featuresTitle">Access</h3>
+            </div>
+            <h2 class="title">Fully Non-Custodial</h2>
+            <p class="subtitle">Security and sovereignty come first. Cave doesn't touch your funds, doesn't store your keys, and can't freeze your wallet — ever.</p>
+        </div>
+        <div class="item4 scroll-fade" style={`background-image: url(${itemBG4.src})`}>
+            <div class="features">
+                <img src={Speed.src} alt="Speed" />
+                <h3 class="featuresTitle">Speed</h3>
+            </div>
+            <h2 class="title">Fast & Lightweight</h2>
+            <p class="subtitle">Cave PayWallet is designed to be lightning-fast and resource-efficient, giving you instant access to your assets without slowing down your device.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Intersection Observer для анимации при скролле
+    const observerOptions = {
+        threshold: 0.2, // Элемент должен быть виден на 20%
+        rootMargin: '0px 0px -100px 0px' // Срабатывает когда элемент ближе к центру экрана
+    };
+
+    const items = document.querySelectorAll('.scroll-fade');
+    let animationTriggered = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !animationTriggered) {
+                animationTriggered = true;
+
+                // Добавляем задержку для последовательного появления каждого элемента
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 300); // 300ms задержка между элементами
+                });
+
+                // Отключаем наблюдатель после срабатывания
+                observer.disconnect();
+            }
+        });
+    }, observerOptions);
+
+    // Наблюдаем только за первым элементом, чтобы запустить анимацию всех сразу
+    if (items.length > 0) {
+        observer.observe(items[0]);
+    }
+</script>
+
+<style>
+    .overview {
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem 0;
+    }
+
+    .left,
+    .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7rem;
+    }
+
+    .item1,
+    .item2,
+    .item3,
+    .item4 {
+        width: 400px;
+        min-height: 350px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .item1 {
+        background-position: bottom;
+    }
+
+    .item2 {
+        padding: 0 0 0 50px;
+        background-position: top;
+        justify-content: flex-end;
+    }
+
+    .item3 {
+        padding: 0 0 0 90px;
+        background-position: top;
+        justify-content: flex-end;
+    }
+
+    .item4 {
+        padding: 0 0 0 90px;
+        background-position: top;
+        justify-content: flex-end;
+    }
+
+    .features {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .features img {
+        max-width: 40px;
+        height: auto;
+    }
+
+    .featuresTitle {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+    .title {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        margin: 0;
+        max-width: 600px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Scroll Animation */
+    .scroll-fade {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+
+    .scroll-fade.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Responsive Design */
+
+    /* Large Desktop (1920px+) */
+    @media (min-width: 1920px) {
+        .overview {
+            gap: 4rem;
+            padding: 3rem 0;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 500px;
+            min-height: 400px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+        }
+
+        .left, .right {
+            gap: 8rem;
+        }
+    }
+
+    /* Desktop (1200px - 1919px) */
+    @media (max-width: 1919px) and (min-width: 1200px) {
+        .item1, .item2, .item3, .item4 {
+            width: 380px;
+        }
+
+        .left, .right {
+            gap: 6rem;
+        }
+    }
+
+    /* Laptop (992px - 1199px) */
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .overview {
+            gap: 2rem;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 350px;
+            min-height: 320px;
+        }
+
+        .item2, .item3, .item4 {
+            padding-left: 40px;
+        }
+
+        .left, .right {
+            gap: 5rem;
+        }
+
+        .title {
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* Tablet Landscape (768px - 991px) */
+    @media (max-width: 991px) and (min-width: 768px) {
+        .overview {
+            flex-direction: column;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .left, .right {
+            gap: 4rem;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 450px;
+            min-height: 350px;
+        }
+
+        .item2, .item3, .item4 {
+            padding-left: 60px;
+        }
+    }
+
+    /* Tablet Portrait (576px - 767px) */
+    @media (max-width: 767px) and (min-width: 576px) {
+        .overview {
+            flex-direction: column;
+            align-items: center;
+            gap: 4rem;
+            padding: 1.5rem 0;
+        }
+
+        .left, .right {
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 90%;
+            min-height: 300px;
+            max-width: 500px;
+        }
+
+        .item2, .item3, .item4 {
+            padding-left: 30px;
+        }
+
+        .title {
+            font-size: 1.6rem;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            max-width: 100%;
+        }
+
+        .features img {
+            max-width: 35px;
+        }
+
+        .featuresTitle {
+            font-size: 1.1rem;
+        }
+    }
+
+    /* Mobile Large (480px - 575px) */
+    @media (max-width: 575px) and (min-width: 480px) {
+        .overview {
+            flex-direction: column;
+            gap: 3rem;
+            padding: 1rem 0;
+        }
+
+        .left, .right {
+            gap: 2.5rem;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 95%;
+            min-height: 280px;
+        }
+
+        .item2, .item3, .item4 {
+            padding-left: 20px;
+        }
+
+        .title {
+            font-size: 1.4rem;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+        }
+
+        .features img {
+            max-width: 30px;
+        }
+
+        .featuresTitle {
+            font-size: 1rem;
+        }
+    }
+
+    /* Mobile Medium (375px - 479px) */
+    @media (max-width: 479px) and (min-width: 375px) {
+        .overview {
+            flex-direction: column;
+            gap: 2.5rem;
+            padding: 1rem 0;
+        }
+
+        .left, .right {
+            gap: 2rem;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 100%;
+            min-height: 250px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .item1 {
+            padding-left: 0;
+        }
+
+        .title {
+            font-size: 1.3rem;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+        }
+
+        .features {
+            gap: 8px;
+        }
+
+        .features img {
+            max-width: 28px;
+        }
+
+        .featuresTitle {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* Mobile Small (320px - 374px) */
+    @media (max-width: 374px) {
+        .overview {
+            flex-direction: column;
+            gap: 2rem;
+            padding: 0.75rem 0;
+        }
+
+        .left, .right {
+            gap: 1.5rem;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            width: 100%;
+            min-height: 220px;
+            padding-left: 10px;
+            padding-right: 10px;
+            gap: 15px;
+        }
+
+        .item1 {
+            padding-left: 0;
+        }
+
+        .title {
+            font-size: 1.2rem;
+        }
+
+        .subtitle {
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .features {
+            gap: 6px;
+        }
+
+        .features img {
+            max-width: 25px;
+        }
+
+        .featuresTitle {
+            font-size: 0.9rem;
+        }
+    }
+</style>

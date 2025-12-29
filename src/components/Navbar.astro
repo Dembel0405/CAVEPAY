@@ -1,0 +1,680 @@
+---
+import Logo from '../assets/logo.png'
+import Telegram from '../assets/telegram-dark-843e9472 2.svg'
+import Twitter from '../assets/twitter-old-d5023358 2.svg'
+import Discord from '../assets/discord-svgrepo-com 1.svg'
+import GitHub from '../assets/github-142-svgrepo-com 1.svg'
+import Arrow from '../assets/keyboard_arrow_down.svg'
+---
+
+<nav class="navbar" id="navbar">
+    <a href="/" >
+        <div class="nav-left">
+            <div class="logo">
+                <img src={Logo.src} alt="CavePay" />
+            </div>
+            <span class="brand">CAVEPAY</span>
+        </div>
+    </a>
+
+    <ul class="nav-center">
+        <li><a href="#">Features</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="#">Docs</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">
+                Socials
+                <span class="arrow"><img src={Arrow.src} /></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="item"> <a href="#"><img src={Twitter.src} alt="Twitter" /> Twitter</a></li>
+                <li class="item"><a href="#"><img src={Discord.src} alt="Discord" /> Discord</a></li>
+                <li class="item"><a href="#"><img src={Telegram.src} alt="Telegram" /> Telegram</a></li>
+                <li class="item"><a href="#"><img src={GitHub.src} alt="GitHub" /> GitHub</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="nav-right">
+        <a href="#" class="btn-download">Download Now</a>
+    </div>
+
+    <!-- Кнопка гамбургера -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- Модальное мобильное меню -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <ul class="mobile-nav-list">
+            <li><a href="#" class="mobile-link">Features</a></li>
+            <li><a href="/about" class="mobile-link">About Us</a></li>
+            <li><a href="#" class="mobile-link">Docs</a></li>
+
+            <li class="mobile-dropdown">
+                <button class="mobile-dropdown-toggle" id="mobileSocialsToggle">
+                    Socials
+                    <span class="mobile-arrow">
+                        <img src={Arrow.src} alt="Arrow" />
+                    </span>
+                </button>
+                <ul class="mobile-dropdown-menu" id="mobileSocialsMenu">
+                    <li><a href="#" class="mobile-social-link"><img src={Twitter.src} alt="Twitter" /> Twitter</a></li>
+                    <li><a href="#" class="mobile-social-link"><img src={Discord.src} alt="Discord" /> Discord</a></li>
+                    <li><a href="#" class="mobile-social-link"><img src={Telegram.src} alt="Telegram" /> Telegram</a></li>
+                    <li><a href="#" class="mobile-social-link"><img src={GitHub.src} alt="GitHub" /> GitHub</a></li>
+                </ul>
+            </li>
+
+            <li class="mobile-download-wrapper">
+                <a href="#" class="mobile-btn-download">Download Now</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .navbar {
+        margin: 2rem 15rem;
+        background-color: white;
+        padding: 8px 50px;
+        display: flex;
+        border-radius: 40px;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .navbar.hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    .brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    .logo img {
+        height: 32px;
+        width: auto;
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* Центральные компоненты навигации */
+    .nav-center {
+        display: flex;
+        gap: 80px;
+        text-decoration: none;
+        align-items: center;
+    }
+
+    .nav-center li {
+        list-style: none;
+        position: relative;
+    }
+
+    .nav-center a {
+        text-decoration: none;
+        color: #000;
+        font-size: 15px;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    .nav-center a:hover {
+        color: #666;
+    }
+
+    /* Выпадающий список Socials */
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-toggle {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+    }
+
+    .item img {
+        width: 16px;
+    }
+
+    .arrow {
+        display: inline-block;
+        transform: rotate(0deg);
+        transition: transform 0.3s ease;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .dropdown:hover .arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        padding: 8px 0;
+        margin-top: 8px;
+        min-width: 140px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, margin-top 0.3s ease;
+        z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        margin-top: 12px;
+    }
+
+    .dropdown-menu li {
+        list-style: none;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        transition: background-color 0.2s ease;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f5f5f5;
+    }
+
+    /* Кнопка Download */
+    .nav-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-download {
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        font-weight: 800;
+        transition: color 0.3s ease;
+    }
+
+    .btn-download:hover {
+        color: #666;
+    }
+
+    /* Гамбургер меню - скрыто на десктопе */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: #000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Модальное мобильное меню */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        background-color: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        width: 90%;
+        max-width: 400px;
+        max-height: 80vh;
+        overflow-y: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active .mobile-menu {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        color: #000;
+        transition: color 0.3s ease;
+    }
+
+    .close-menu:hover {
+        color: #666;
+    }
+
+    .mobile-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-nav-list > li {
+        margin-bottom: 8px;
+    }
+
+    .mobile-link {
+        display: block;
+        padding: 16px 20px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: background-color 0.2s ease;
+    }
+
+    .mobile-link:hover {
+        background-color: #f5f5f5;
+    }
+
+    /* Мобильный аккордеон для Socials */
+    .mobile-dropdown {
+        margin-bottom: 8px;
+    }
+
+    .mobile-dropdown-toggle {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000;
+        background: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        text-align: left;
+    }
+
+    .mobile-dropdown-toggle:hover {
+        background-color: #f5f5f5;
+    }
+
+    .mobile-arrow {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-arrow img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mobile-dropdown-toggle.active .mobile-arrow {
+        transform: rotate(180deg);
+    }
+
+    .mobile-dropdown-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .mobile-dropdown-menu.active {
+        max-height: 300px;
+    }
+
+    .mobile-social-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px 12px 40px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+    }
+
+    .mobile-social-link:hover {
+        background-color: #f5f5f5;
+    }
+
+    .mobile-social-link img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .mobile-download-wrapper {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .mobile-btn-download {
+        display: block;
+        text-align: center;
+        padding: 16px 20px;
+        font-size: 18px;
+        font-weight: 800;
+        color: #000;
+        text-decoration: none;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        transition: background-color 0.2s ease;
+    }
+
+    .mobile-btn-download:hover {
+        background-color: #e5e5e5;
+    }
+
+    /* Адаптивные стили */
+
+    /* Большие десктопы (1400px+) */
+    @media (max-width: 1600px) {
+        .navbar {
+            margin: 2rem 10rem;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .navbar {
+            margin: 2rem 6rem;
+            padding: 8px 40px;
+        }
+
+        .nav-center {
+            gap: 50px;
+        }
+    }
+
+    /* Средние десктопы и ноутбуки (1024px - 1200px) */
+    @media (max-width: 1200px) {
+        .navbar {
+            margin: 2rem 3rem;
+            padding: 8px 30px;
+        }
+
+        .nav-center {
+            gap: 35px;
+        }
+
+        .nav-center a {
+            font-size: 14px;
+        }
+
+        .brand {
+            font-size: 1.2rem;
+        }
+
+        .btn-download {
+            font-size: 14px;
+        }
+    }
+
+    /* Планшеты (768px - 1024px) */
+    @media (max-width: 1024px) {
+        .navbar {
+            margin: 1.5rem 2rem;
+            padding: 8px 25px;
+        }
+
+        .nav-center {
+            gap: 25px;
+        }
+
+        .brand {
+            font-size: 1.1rem;
+        }
+
+        .logo img {
+            height: 28px;
+        }
+    }
+
+    /* Мобильные устройства (до 768px) */
+    @media (max-width: 768px) {
+        .navbar {
+            margin: 1rem 1rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        /* Скрываем десктопное меню */
+        .nav-center,
+        .nav-right {
+            display: none;
+        }
+
+        /* Показываем гамбургер */
+        .hamburger {
+            display: flex;
+        }
+
+        .brand {
+            font-size: 1rem;
+        }
+
+        .logo img {
+            height: 26px;
+        }
+
+        .nav-left {
+            gap: 10px;
+        }
+    }
+
+    /* Маленькие мобильные (до 480px) */
+    @media (max-width: 480px) {
+        .navbar {
+            margin: 0.8rem 0.8rem;
+            padding: 8px 15px;
+            border-radius: 25px;
+        }
+
+        .brand {
+            font-size: 0.95rem;
+        }
+
+        .logo img {
+            height: 24px;
+        }
+
+        .mobile-menu {
+            width: 95%;
+            padding: 35px 20px;
+        }
+
+        .mobile-link,
+        .mobile-dropdown-toggle {
+            font-size: 16px;
+            padding: 14px 16px;
+        }
+
+        .mobile-btn-download {
+            font-size: 16px;
+            padding: 14px 16px;
+        }
+    }
+
+    /* Очень маленькие экраны (до 360px) */
+    @media (max-width: 360px) {
+        .navbar {
+            margin: 0.5rem 0.5rem;
+            padding: 6px 12px;
+        }
+
+        .brand {
+            font-size: 0.85rem;
+        }
+
+        .logo img {
+            height: 22px;
+        }
+
+        .nav-left {
+            gap: 8px;
+        }
+
+        .hamburger span {
+            width: 22px;
+        }
+    }
+</style>
+
+<script>
+    // Скрытие/показ навбара при скролле
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop <= 0) {
+            navbar?.classList.remove('hidden');
+        }
+        else if (scrollTop > lastScrollTop) {
+            navbar?.classList.add('hidden');
+        }
+        else {
+            navbar?.classList.remove('hidden');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+    // Мобильное меню
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileSocialsToggle = document.getElementById('mobileSocialsToggle');
+    const mobileSocialsMenu = document.getElementById('mobileSocialsMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-social-link, .mobile-btn-download');
+
+    // Открытие мобильного меню
+    hamburger?.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenuOverlay?.classList.toggle('active');
+        document.body.style.overflow = mobileMenuOverlay?.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Закрытие мобильного меню по клику на крестик
+    closeMenu?.addEventListener('click', () => {
+        hamburger?.classList.remove('active');
+        mobileMenuOverlay?.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Закрытие мобильного меню по клику на overlay
+    mobileMenuOverlay?.addEventListener('click', (e) => {
+        if (e.target === mobileMenuOverlay) {
+            hamburger?.classList.remove('active');
+            mobileMenuOverlay?.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Закрытие мобильного меню по клику на любую ссылку
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger?.classList.remove('active');
+            mobileMenuOverlay?.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Аккордеон для Socials в мобильном меню
+    mobileSocialsToggle?.addEventListener('click', () => {
+        mobileSocialsToggle.classList.toggle('active');
+        mobileSocialsMenu?.classList.toggle('active');
+    });
+
+    // Закрытие меню по Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenuOverlay?.classList.contains('active')) {
+            hamburger?.classList.remove('active');
+            mobileMenuOverlay?.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+</script>

@@ -1,0 +1,428 @@
+---
+import BG from '../assets/Trade&Grow/bg.png'
+---
+
+<section class="trade_section">
+    <h1 class="main_title scroll-fade-title">Trade & Grow</h1>
+    <div class="container">
+        <div class="content">
+            <div class="item scroll-fade-item">
+                <div class="border"></div>
+                <div class="info">
+                    <h2 class="item_title">One-Click Single-Chain & Cross-Chain Swaps</h2>
+                    <p class="desc">Swap instantly across or within chains with transparent fees and optimal routes.</p>
+                </div>
+            </div>
+            <div class="item scroll-fade-item">
+                <div class="border"></div>
+                <div class="info">
+                    <h2 class="item_title">Top DeFi, Maximum Trust. Bigger Yields.</h2>
+                    <p class="desc">Access multiple high-TVL, battle-tested DeFi protocols to ensure reliability and unlock greater earning potential — all in one tap.</p>
+                </div>
+            </div>
+            <div class="item scroll-fade-item">
+                <div class="border"></div>
+                <div class="info">
+                    <h2 class="item_title">Live Market Tracking</h2>
+                    <p class="desc">Follow real-time charts and market trends to seize every opportunity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="image scroll-fade-image">
+            <img src={BG.src} alt="Trade and Grow" />
+        </div>
+    </div>
+</section>
+
+<script>
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+    };
+
+    let animationTriggered = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !animationTriggered) {
+                animationTriggered = true;
+
+                // Анимируем заголовок
+                const title = document.querySelector('.scroll-fade-title');
+                if (title) {
+                    setTimeout(() => {
+                        title.classList.add('visible');
+                    }, 100);
+                }
+
+                // Анимируем элементы по очереди
+                const items = document.querySelectorAll('.scroll-fade-item');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, 400 + (index * 200));
+                });
+
+                // Анимируем изображение последним
+                const image = document.querySelector('.scroll-fade-image');
+                if (image) {
+                    setTimeout(() => {
+                        image.classList.add('visible');
+                    }, 400 + (items.length * 200) + 200);
+                }
+
+                observer.disconnect();
+            }
+        });
+    }, observerOptions);
+
+    const tradeSection = document.querySelector('.trade_section');
+    if (tradeSection) {
+        observer.observe(tradeSection);
+    }
+</script>
+
+<style>
+    .trade_section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .main_title {
+        font-size: clamp(3rem, 5vw, 5rem);
+        font-weight: 700;
+        margin-bottom: 3rem;
+        line-height: 1.2;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .item {
+        display: flex;
+        gap: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+        transform: translateX(5px);
+    }
+
+    .border {
+        width: 4px;
+        min-height: 120px;
+        background: rgba(212, 175, 175, 1);
+        border-radius: 2px;
+        flex-shrink: 0;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .item_title {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    .desc {
+        font-size: clamp(1rem, 1.2vw, 1.2rem);
+        line-height: 1.6;
+        color: rgba(0, 0, 0, 0.75);
+        margin: 0;
+    }
+
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Scroll Animations */
+    .scroll-fade-title,
+    .scroll-fade-item,
+    .scroll-fade-image {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+
+    .scroll-fade-title {
+        opacity: 1;
+        transform: translateY(40px);
+        transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+
+
+    .scroll-fade-item.visible,
+    .scroll-fade-image.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .scroll-fade-title.visible {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    /* Responsive Design */
+
+    /* Large Desktop (1920px+) */
+    @media (min-width: 1920px) {
+        .trade_section {
+            padding: 5rem 2rem;
+            max-width: 1600px;
+        }
+
+        .main_title {
+            margin-bottom: 4rem;
+        }
+
+        .container {
+            gap: 5rem;
+        }
+
+        .content {
+            gap: 3rem;
+        }
+
+        .border {
+            min-height: 140px;
+        }
+
+        .image img {
+            max-width: 700px;
+        }
+    }
+
+    /* Desktop (1200px - 1919px) */
+    @media (max-width: 1919px) and (min-width: 1200px) {
+        .trade_section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            gap: 3.5rem;
+        }
+
+        .content {
+            gap: 2.5rem;
+        }
+
+        .image img {
+            max-width: 550px;
+        }
+    }
+
+    /* Laptop (992px - 1199px) */
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .trade_section {
+            padding: 3.5rem 2rem;
+        }
+
+        .main_title {
+            margin-bottom: 2.5rem;
+        }
+
+        .container {
+            gap: 3rem;
+        }
+
+        .content {
+            gap: 2rem;
+        }
+
+        .border {
+            min-height: 110px;
+        }
+
+        .image img {
+            max-width: 500px;
+        }
+    }
+
+    /* Tablet (768px - 991px) */
+    @media (max-width: 991px) {
+        .container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .image {
+            order: -1;
+        }
+
+        .main_title {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 991px) and (min-width: 768px) {
+        .trade_section {
+            padding: 3rem 1.5rem;
+        }
+
+        .main_title {
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            gap: 2rem;
+        }
+
+        .border {
+            width: 3px;
+            min-height: 100px;
+        }
+
+        .image img {
+            max-width: 450px;
+        }
+    }
+
+    /* Tablet Portrait (576px - 767px) */
+    @media (max-width: 767px) and (min-width: 576px) {
+        .trade_section {
+            padding: 2.5rem 1.5rem;
+        }
+
+        .main_title {
+            margin-bottom: 2rem;
+        }
+
+        .content {
+            gap: 1.8rem;
+        }
+
+        .border {
+            width: 3px;
+            min-height: 90px;
+        }
+
+        .item {
+            gap: 1rem;
+        }
+
+        .image img {
+            max-width: 400px;
+        }
+    }
+
+    /* Mobile Large (480px - 575px) */
+    @media (max-width: 575px) and (min-width: 480px) {
+        .trade_section {
+            padding: 2rem 1rem;
+        }
+
+        .main_title {
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            gap: 2rem;
+        }
+
+        .content {
+            gap: 1.5rem;
+        }
+
+        .border {
+            width: 3px;
+            min-height: 85px;
+        }
+
+        .item {
+            gap: 0.9rem;
+        }
+
+        .image img {
+            max-width: 100%;
+        }
+    }
+
+    /* Mobile Medium (375px - 479px) */
+    @media (max-width: 479px) and (min-width: 375px) {
+        .trade_section {
+            padding: 2rem 1rem;
+        }
+
+        .main_title {
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            gap: 2rem;
+        }
+
+        .content {
+            gap: 1.5rem;
+        }
+
+        .border {
+            width: 3px;
+            min-height: 80px;
+        }
+
+        .item {
+            gap: 0.8rem;
+        }
+
+        .image img {
+            max-width: 100%;
+        }
+    }
+
+    /* Mobile Small (320px - 374px) */
+    @media (max-width: 374px) {
+        .trade_section {
+            padding: 1.5rem 0.75rem;
+        }
+
+        .main_title {
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            gap: 1.5rem;
+        }
+
+        .content {
+            gap: 1.2rem;
+        }
+
+        .border {
+            width: 2px;
+            min-height: 75px;
+        }
+
+        .item {
+            gap: 0.7rem;
+        }
+
+        .image img {
+            max-width: 100%;
+        }
+    }
+</style>

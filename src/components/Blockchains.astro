@@ -1,0 +1,549 @@
+---
+// Импортируем все изображения для верхней строки
+import Ellipse21 from '../assets/Blockchains/Ellipse 21.png';
+import Ellipse22 from '../assets/Blockchains/Ellipse 22.png';
+import Ellipse23 from '../assets/Blockchains/Ellipse 23.png';
+import Ellipse24 from '../assets/Blockchains/Ellipse 24.png';
+import Ellipse25 from '../assets/Blockchains/Ellipse 25.png';
+import Ellipse26 from '../assets/Blockchains/Ellipse 26.png';
+import Ellipse27 from '../assets/Blockchains/Ellipse 27.png';
+import Ellipse28 from '../assets/Blockchains/Ellipse 28.png';
+import Ellipse29 from '../assets/Blockchains/Ellipse 29.png';
+import Ellipse30 from '../assets/Blockchains/Ellipse 30.png';
+import Ellipse31 from '../assets/Blockchains/Ellipse 31.png';
+import Ellipse32 from '../assets/Blockchains/Ellipse 32.png';
+import Ellipse33 from '../assets/Blockchains/Ellipse 33.png';
+import Ellipse34 from '../assets/Blockchains/Ellipse 34.png';
+import Ellipse35 from '../assets/Blockchains/Ellipse 35.png';
+import Ellipse36 from '../assets/Blockchains/Ellipse 36.png';
+import Ellipse37 from '../assets/Blockchains/Ellipse 37.png';
+import Ellipse38 from '../assets/Blockchains/Ellipse 38.png';
+import Ellipse39 from '../assets/Blockchains/Ellipse 39.png';
+import Ellipse40 from '../assets/Blockchains/Ellipse 40.png';
+import Ellipse41 from '../assets/Blockchains/Ellipse 41.png';
+import Ellipse42 from '../assets/Blockchains/Ellipse 42.png';
+import Ellipse43 from '../assets/Blockchains/Ellipse 43.png';
+import Ellipse44 from '../assets/Blockchains/Ellipse 44.png';
+import Ellipse45 from '../assets/Blockchains/Ellipse 45.png';
+import Ellipse46 from '../assets/Blockchains/Ellipse 46.png';
+import Image8 from '../assets/Blockchains/image 8.png';
+import Image9 from '../assets/Blockchains/image 9.png';
+import Image10 from '../assets/Blockchains/image 10.png';
+import Group3 from '../assets/Blockchains/Group 3.png';
+
+// Импортируем все изображения для нижней строки
+import Ellipse47 from '../assets/Blockchains/Ellipse 47.png';
+import Ellipse49 from '../assets/Blockchains/Ellipse 49.png';
+import Ellipse50 from '../assets/Blockchains/Ellipse 50.png';
+import Ellipse51 from '../assets/Blockchains/Ellipse 51.png';
+import Ellipse52 from '../assets/Blockchains/Ellipse 52.png';
+import Ellipse53 from '../assets/Blockchains/Ellipse 53.png';
+import Ellipse54 from '../assets/Blockchains/Ellipse 54.png';
+import Ellipse55 from '../assets/Blockchains/Ellipse 55.png';
+import Ellipse56 from '../assets/Blockchains/Ellipse 56.png';
+import Ellipse57 from '../assets/Blockchains/Ellipse 57.png';
+import Ellipse58 from '../assets/Blockchains/Ellipse 58.png';
+import Ellipse59 from '../assets/Blockchains/Ellipse 59.png';
+import Ellipse60 from '../assets/Blockchains/Ellipse 60.png';
+import Ellipse61 from '../assets/Blockchains/Ellipse 61.png';
+import Ellipse63 from '../assets/Blockchains/Ellipse 63.png';
+import Ellipse64 from '../assets/Blockchains/Ellipse 64.png';
+import Ellipse65 from '../assets/Blockchains/Ellipse 65.png';
+import Ellipse66 from '../assets/Blockchains/Ellipse 66.png';
+import Ellipse67 from '../assets/Blockchains/Ellipse 67.png';
+import Ellipse68 from '../assets/Blockchains/Ellipse 68.png';
+import Ellipse69 from '../assets/Blockchains/Ellipse 69.png';
+import Ellipse70 from '../assets/Blockchains/Ellipse 70.png';
+import Ellipse72 from '../assets/Blockchains/Ellipse 72.png';
+import Image14 from '../assets/Blockchains/image 14.png';
+
+// Массивы изображений для верхней и нижней каруселей
+const topRowLogos = [
+    Ellipse21, Ellipse22, Ellipse23, Ellipse24, Ellipse25, Ellipse26,
+    Ellipse27, Ellipse28, Ellipse29, Ellipse30, Ellipse31, Ellipse32,
+    Ellipse33, Ellipse34, Ellipse35, Ellipse36, Ellipse37, Ellipse38,
+    Ellipse39, Ellipse40, Ellipse41, Ellipse42, Ellipse43, Ellipse44,
+    Ellipse45, Ellipse46, Image8, Image9, Image10, Group3
+];
+
+const bottomRowLogos = [
+    Ellipse47, Ellipse49, Ellipse50, Ellipse51, Ellipse52,
+    Ellipse53, Ellipse54, Ellipse55, Ellipse56, Ellipse57, Ellipse58,
+    Ellipse59, Ellipse60, Ellipse61, Ellipse63, Ellipse64,
+    Ellipse65, Ellipse66, Ellipse67, Ellipse68, Ellipse69, Ellipse70,
+    Ellipse72, Image14
+];
+---
+
+<section class="blockchains-section">
+    <h2 class="blockchains-title">Supports 90+ Blockchains</h2>
+
+    <div class="marquee-container">
+        <!-- Верхняя бегущая строка (слева направо) -->
+        <div class="marquee marquee-left">
+            <div class="marquee-content">
+                {topRowLogos.map((logo) => (
+                        <div class="logo-container">
+                            <img src={logo.src} alt="Blockchain logo" class="logo-image" />
+                        </div>
+                ))}
+                <!-- Дублируем для бесшовной анимации -->
+                {topRowLogos.map((logo) => (
+                        <div class="logo-container">
+                            <img src={logo.src} alt="Blockchain logo" class="logo-image" />
+                        </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Нижняя бегущая строка (справа налево) -->
+        <div class="marquee marquee-right">
+            <div class="marquee-content">
+                {bottomRowLogos.map((logo) => (
+                        <div class="logo-container">
+                            <img src={logo.src} alt="Blockchain logo" class="logo-image" />
+                        </div>
+                ))}
+                <!-- Дублируем для бесшовной анимации -->
+                {bottomRowLogos.map((logo) => (
+                        <div class="logo-container">
+                            <img src={logo.src} alt="Blockchain logo" class="logo-image" />
+                        </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ВАЖНО: Добавьте в ваш глобальный CSS или layout:
+       body, html {
+           overflow-x: hidden;
+       }
+       Это предотвратит горизонтальный скролл, позволяя карусели выходить за контейнер
+    */
+
+    .blockchains-section {
+        position: relative;
+        width: 100%;
+        margin-top: 7rem;
+        padding: 0;
+    }
+
+    .blockchains-title {
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 0 0 7rem 0;
+        padding: 0 1rem;
+    }
+
+    .marquee-container {
+        position: relative;
+        left: 45%;
+        right: 45%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    /* Белая дымка с размытием по краям */
+    .marquee-container::before,
+    .marquee-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 15rem;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+    .marquee-container::before {
+        left: 0;
+        background: linear-gradient(to right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.8) 30%,
+        rgba(255, 255, 255, 0) 100%
+        );
+    }
+
+    .marquee-container::after {
+        right: 0;
+        background: linear-gradient(to left,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.8) 30%,
+        rgba(255, 255, 255, 0) 100%
+        );
+    }
+
+    .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+    }
+
+    .marquee:first-child {
+        margin-bottom: 4.375rem;
+    }
+
+    .marquee-content {
+        display: inline-flex;
+        gap: 1.5rem;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+
+    /* Анимация слева направо */
+    .marquee-left .marquee-content {
+        animation-name: scrollLeft;
+        animation-duration: 40s;
+    }
+
+    /* Анимация справа налево */
+    .marquee-right .marquee-content {
+        animation-name: scrollRight;
+        animation-duration: 40s;
+    }
+
+    @keyframes scrollLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes scrollRight {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .logo-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 4.5rem;
+        background: rgba(143, 143, 143, 1);
+        border-radius: 0.9375rem;
+        padding: 1rem;
+        flex-shrink: 0;
+    }
+
+    .logo-image {
+        width: 4rem;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Responsive Design */
+
+    /* Large Desktop (1920px+) */
+    @media (min-width: 1920px) {
+        .blockchains-section {
+            margin-top: 9rem;
+        }
+
+        .blockchains-title {
+            font-size: 4rem;
+            margin-bottom: 8rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 5rem;
+        }
+
+        .marquee-content {
+            gap: 2rem;
+        }
+
+        .logo-container {
+            width: 5.5rem;
+            padding: 1.2rem;
+        }
+
+        .logo-image {
+            width: 5rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 18rem;
+        }
+    }
+
+    /* Desktop (1200px - 1919px) */
+    @media (max-width: 1919px) and (min-width: 1200px) {
+        .blockchains-title {
+            font-size: 2.8rem;
+            margin-bottom: 6rem;
+        }
+
+        .logo-container {
+            width: 4.2rem;
+            padding: 0.9rem;
+        }
+
+        .logo-image {
+            width: 3.8rem;
+        }
+    }
+
+    /* Laptop (992px - 1199px) */
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .blockchains-section {
+            margin-top: 5rem;
+        }
+
+        .blockchains-title {
+            font-size: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 3.5rem;
+        }
+
+        .marquee-content {
+            gap: 1.2rem;
+        }
+
+        .logo-container {
+            width: 4rem;
+            padding: 0.8rem;
+        }
+
+        .logo-image {
+            width: 3.5rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 12rem;
+        }
+    }
+
+    /* Tablet Landscape (768px - 991px) */
+    @media (max-width: 991px) and (min-width: 768px) {
+        .blockchains-section {
+            margin-top: 4rem;
+        }
+
+        .blockchains-title {
+            font-size: 2.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 3rem;
+        }
+
+        .marquee-content {
+            gap: 1rem;
+        }
+
+        .logo-container {
+            width: 3.5rem;
+            padding: 0.7rem;
+            border-radius: 0.75rem;
+        }
+
+        .logo-image {
+            width: 3rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 10rem;
+        }
+
+        /* Ускоряем анимацию на планшетах */
+        .marquee-left .marquee-content {
+            animation-duration: 35s;
+        }
+
+        .marquee-right .marquee-content {
+            animation-duration: 35s;
+        }
+    }
+
+    /* Tablet Portrait (576px - 767px) */
+    @media (max-width: 767px) and (min-width: 576px) {
+        .blockchains-section {
+            margin-top: 3.5rem;
+        }
+
+        .blockchains-title {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 2.5rem;
+        }
+
+        .marquee-content {
+            gap: 0.8rem;
+        }
+
+        .logo-container {
+            width: 3rem;
+            padding: 0.6rem;
+            border-radius: 0.625rem;
+        }
+
+        .logo-image {
+            width: 2.5rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 8rem;
+        }
+
+        /* Ускоряем анимацию */
+        .marquee-left .marquee-content {
+            animation-duration: 30s;
+        }
+
+        .marquee-right .marquee-content {
+            animation-duration: 30s;
+        }
+    }
+
+    /* Mobile Large (480px - 575px) */
+    @media (max-width: 575px) and (min-width: 480px) {
+        .blockchains-section {
+            margin-top: 3rem;
+        }
+
+        .blockchains-title {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 2rem;
+        }
+
+        .marquee-content {
+            gap: 0.7rem;
+        }
+
+        .logo-container {
+            width: 2.8rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .logo-image {
+            width: 2.2rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 6rem;
+        }
+
+        .marquee-left .marquee-content {
+            animation-duration: 28s;
+        }
+
+        .marquee-right .marquee-content {
+            animation-duration: 28s;
+        }
+    }
+
+    /* Mobile Medium (375px - 479px) */
+    @media (max-width: 479px) and (min-width: 375px) {
+        .blockchains-section {
+            margin-top: 2.5rem;
+        }
+
+        .blockchains-title {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 1.8rem;
+        }
+
+        .marquee-content {
+            gap: 0.6rem;
+        }
+
+        .logo-container {
+            width: 2.5rem;
+            padding: 0.45rem;
+            border-radius: 0.5rem;
+        }
+
+        .logo-image {
+            width: 2rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 5rem;
+        }
+
+        .marquee-left .marquee-content {
+            animation-duration: 25s;
+        }
+
+        .marquee-right .marquee-content {
+            animation-duration: 25s;
+        }
+    }
+
+    /* Mobile Small (320px - 374px) */
+    @media (max-width: 374px) {
+        .blockchains-section {
+            margin-top: 2rem;
+        }
+
+        .blockchains-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding: 0 0.5rem;
+        }
+
+        .marquee:first-child {
+            margin-bottom: 1.5rem;
+        }
+
+        .marquee-content {
+            gap: 0.5rem;
+        }
+
+        .logo-container {
+            width: 2.2rem;
+            padding: 0.4rem;
+            border-radius: 0.4rem;
+        }
+
+        .logo-image {
+            width: 1.8rem;
+        }
+
+        .marquee-container::before,
+        .marquee-container::after {
+            width: 4rem;
+        }
+
+        .marquee-left .marquee-content {
+            animation-duration: 22s;
+        }
+
+        .marquee-right .marquee-content {
+            animation-duration: 22s;
+        }
+    }
+</style>

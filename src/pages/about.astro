@@ -1,0 +1,55 @@
+---
+import About from '../assets/About/About.png'
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+---
+<Layout>
+
+<section class="About">
+    <img src={About.src} alt="About us">
+    <div class="Information">
+        <h1 class="title">About Us</h1>
+        <p class="desc">CavePay is a professional multi-cryptocurrency on-chain wallet. Leveraging our technical expertise and security experience in the blockchain field, we protect digital currency users' assets from multiple dimensions, providing simple, convenient, secure, and reliable digital asset management services</p>
+    </div>
+</section>
+<section class="Contact">
+    <h1 class="title">Contact Us</h1>
+    <div class="container">
+        
+    </div>
+</section>
+
+
+</Layout>
+
+
+
+<style>
+.About {
+    display: flex;
+    align-items: center;
+    margin: 0 2rem;
+    gap: 2rem;
+
+    img {
+        width: 40%;
+    }
+}
+
+.Information {
+    display: flex;
+    flex-direction: column;
+
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .desc {
+        width: 65%;
+        font-size: 1.3rem;
+    }
+}
+
+
+</style>

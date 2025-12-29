@@ -1,0 +1,482 @@
+---
+import Welf from '../assets/Partners/image 1.png'
+import Orbler from '../assets/Partners/image 2.png'
+import Metya from '../assets/Partners/image 3.png'
+import REI from '../assets/Partners/image 4.png'
+import Taraxa from  '../assets/Partners/image 5.png'
+import Tectum from '../assets/Partners/image 6.png'
+import Arrow from '../assets/Partners/Arro.svg'
+---
+<div class="partners">
+    <h1 class="title scroll-fade-title">Trusted by Builders & Innovators</h1>
+    <p class="subtitle scroll-fade-subtitle">Join the growing ecosystem of protocols and enterprises leveraging technology.</p>
+    <div class="partContainer">
+        <div class="item scroll-fade-item">
+            <img src={Welf.src} alt="Welf" />
+        </div>
+        <div class="item scroll-fade-item">
+            <img src={Orbler.src} alt="Orbler" />
+        </div>
+        <div class="item scroll-fade-item">
+            <img src={Metya.src} alt="Metya" />
+        </div>
+        <div class="item scroll-fade-item">
+            <img src={REI.src} alt="REI" />
+        </div>
+        <div class="item scroll-fade-item">
+            <img src={Taraxa.src} alt="Taraxa" />
+        </div>
+        <div class="item scroll-fade-item">
+            <img src={Tectum.src} alt="Tectum" />
+        </div>
+    </div>
+    <div class="btn scroll-fade-btn">
+        <a class="link">Become a Partner</a>
+        <img src={Arrow.src} alt="Arrow" />
+    </div>
+</div>
+
+<script>
+    // Intersection Observer для анимации при скролле
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+    };
+
+    let animationTriggered = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && !animationTriggered) {
+                animationTriggered = true;
+
+                // Анимируем заголовок
+                const title = document.querySelector('.scroll-fade-title');
+                if (title) {
+                    setTimeout(() => {
+                        title.classList.add('visible');
+                    }, 100);
+                }
+
+                // Анимируем подзаголовок
+                const subtitle = document.querySelector('.scroll-fade-subtitle');
+                if (subtitle) {
+                    setTimeout(() => {
+                        subtitle.classList.add('visible');
+                    }, 300);
+                }
+
+                // Анимируем партнёров по очереди
+                const items = document.querySelectorAll('.scroll-fade-item');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, 600 + (index * 200)); // Начинаем после заголовков, 200ms между партнёрами
+                });
+
+                // Анимируем кнопку последней
+                const btn = document.querySelector('.scroll-fade-btn');
+                if (btn) {
+                    setTimeout(() => {
+                        btn.classList.add('visible');
+                    }, 600 + (items.length * 200) + 200);
+                }
+
+                observer.disconnect();
+            }
+        });
+    }, observerOptions);
+
+    // Наблюдаем за секцией partners
+    const partnersSection = document.querySelector('.partners');
+    if (partnersSection) {
+        observer.observe(partnersSection);
+    }
+</script>
+
+<style>
+    .partners {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 8rem;
+        gap: 1rem;
+        padding: 0 2rem;
+    }
+
+    .title {
+        font-size: 4rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    .subtitle {
+        width: 50%;
+        font-size: 1.7rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    .partContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 5rem;
+    }
+
+    .item {
+        border-radius: 15px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        box-shadow: 0px 4px 4px 0px rgba(34, 60, 80, 0.2) inset;
+        transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+        transform: translateY(-5px);
+    }
+
+    .item img {
+        width: 250px;
+        height: auto;
+    }
+
+    .btn {
+        padding: 20px 30px;
+        background-color: white;
+        border-radius: 25px;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        box-shadow: 0px 4px 4px 0px rgba(34, 60, 80, 0.2) inset;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 6px 0px rgba(34, 60, 80, 0.25) inset;
+    }
+
+    .btn img {
+        width: 20px;
+        height: auto;
+    }
+
+    .link {
+        font-size: 1.4rem;
+        text-decoration: none;
+    }
+
+    /* Scroll Animations */
+    .scroll-fade-title,
+    .scroll-fade-subtitle,
+    .scroll-fade-item,
+    .scroll-fade-btn {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 2s ease-out, transform 2s ease-out;
+    }
+
+    .scroll-fade-title.visible,
+    .scroll-fade-subtitle.visible,
+    .scroll-fade-item.visible,
+    .scroll-fade-btn.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Responsive Design */
+
+    /* Large Desktop (1920px+) */
+    @media (min-width: 1920px) {
+        .partners {
+            margin-top: 10rem;
+            gap: 1.5rem;
+        }
+
+        .title {
+            font-size: 5rem;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            width: 45%;
+        }
+
+        .partContainer {
+            gap: 4rem;
+            margin-top: 6rem;
+        }
+
+        .item img {
+            width: 300px;
+        }
+
+        .link {
+            font-size: 1.6rem;
+        }
+    }
+
+    /* Desktop (1200px - 1919px) */
+    @media (max-width: 1919px) and (min-width: 1200px) {
+        .title {
+            font-size: 3.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            width: 55%;
+        }
+
+        .item img {
+            width: 220px;
+        }
+    }
+
+    /* Laptop (992px - 1199px) */
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .partners {
+            margin-top: 6rem;
+        }
+
+        .title {
+            font-size: 3rem;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            width: 65%;
+        }
+
+        .partContainer {
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .item {
+            padding: 1.5rem;
+        }
+
+        .item img {
+            width: 200px;
+        }
+
+        .link {
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Tablet Landscape (768px - 991px) */
+    @media (max-width: 991px) and (min-width: 768px) {
+        .partners {
+            margin-top: 5rem;
+        }
+
+        .title {
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            width: 75%;
+        }
+
+        .partContainer {
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .item {
+            padding: 1.5rem;
+        }
+
+        .item img {
+            width: 180px;
+        }
+
+        .link {
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            padding: 18px 25px;
+        }
+    }
+
+    /* Tablet Portrait (576px - 767px) */
+    @media (max-width: 767px) and (min-width: 576px) {
+        .partners {
+            margin-top: 4rem;
+            padding: 0 1.5rem;
+        }
+
+        .title {
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            width: 85%;
+        }
+
+        .partContainer {
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .item {
+            padding: 1.2rem;
+        }
+
+        .item img {
+            width: 150px;
+        }
+
+        .link {
+            font-size: 1rem;
+        }
+
+        .btn {
+            padding: 16px 22px;
+            margin-top: 1.5rem;
+        }
+    }
+
+    /* Mobile Large (480px - 575px) */
+    @media (max-width: 575px) and (min-width: 480px) {
+        .partners {
+            margin-top: 3rem;
+            padding: 0 1rem;
+        }
+
+        .title {
+            font-size: 1.75rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            width: 90%;
+        }
+
+        .partContainer {
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+        }
+
+        .item {
+            padding: 1rem;
+            width: calc(50% - 0.6rem);
+        }
+
+        .item img {
+            width: 100%;
+            max-width: 140px;
+        }
+
+        .link {
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            padding: 14px 20px;
+        }
+    }
+
+    /* Mobile Medium (375px - 479px) */
+    @media (max-width: 479px) and (min-width: 375px) {
+        .partners {
+            margin-top: 2.5rem;
+            padding: 0 0.75rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.85rem;
+            width: 95%;
+        }
+
+        .partContainer {
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .item {
+            padding: 0.8rem;
+            width: calc(50% - 0.5rem);
+        }
+
+        .item img {
+            width: 100%;
+            max-width: 120px;
+        }
+
+        .link {
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 12px 18px;
+            margin-top: 1.5rem;
+        }
+
+        .btn img {
+            width: 16px;
+        }
+    }
+
+    /* Mobile Small (320px - 374px) */
+    @media (max-width: 374px) {
+        .partners {
+            margin-top: 2rem;
+            padding: 0 0.5rem;
+            gap: 0.75rem;
+        }
+
+        .title {
+            font-size: 1.3rem;
+        }
+
+        .subtitle {
+            font-size: 0.75rem;
+            width: 100%;
+        }
+
+        .partContainer {
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .item {
+            padding: 0.6rem;
+            width: calc(50% - 0.4rem);
+        }
+
+        .item img {
+            width: 100%;
+            max-width: 100px;
+        }
+
+        .link {
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            margin-top: 1rem;
+        }
+
+        .btn img {
+            width: 14px;
+        }
+    }
+</style>

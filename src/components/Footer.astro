@@ -1,0 +1,432 @@
+---
+import Logo from '../assets/logo.png'
+---
+
+<section class="Footer">
+    <div class="border"></div>
+    <div class="logotype">
+        <img src={Logo.src} alt="CAVEPAY"/>
+        <h1 class="title">CAVEPAY</h1>
+    </div>
+    <div class="links">
+        <span class="item">About Us</span>
+        <span class="item">Contact Us</span>
+        <span class="item">Docs</span>
+    </div>
+    <div class="Copyright">
+        <div class="left">
+            <p class="text">Service Agreement</p>
+            <p class="text">Privacy Policy</p>
+        </div>
+        <div class="right">
+            <p class="potent">© 2025 CavePay All Rights Reserved</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .Footer {
+        margin: 8rem 2rem 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .border {
+        width: 100%;
+        height: 0.1rem;
+        background: rgba(17, 0, 0, 0.35);
+    }
+
+    .logotype {
+        display: flex;
+        align-items: flex-end;
+        gap: 1rem;
+    }
+
+    .logotype img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .logotype .title {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .links .item {
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .links .item:hover {
+        opacity: 0.7;
+    }
+
+    .Copyright {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    .left {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .left .text {
+        margin: 0;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .left .text:hover {
+        opacity: 0.7;
+    }
+
+    .right .potent {
+        margin: 0;
+        font-size: 1rem;
+        text-align: right;
+    }
+
+    /* Responsive Design */
+
+    /* Large Desktop (1920px+) */
+    @media (min-width: 1920px) {
+        .Footer {
+            margin: 10rem 4rem 2rem 4rem;
+            gap: 2.5rem;
+        }
+
+        .logotype img {
+            height: 70px;
+        }
+
+        .logotype .title {
+            font-size: 2.5rem;
+        }
+
+        .links {
+            gap: 3rem;
+        }
+
+        .links .item {
+            font-size: 1.8rem;
+        }
+
+        .left {
+            gap: 3rem;
+        }
+
+        .left .text,
+        .right .potent {
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Desktop (1200px - 1919px) */
+    @media (max-width: 1919px) and (min-width: 1200px) {
+        .Footer {
+            margin: 8rem 3rem 2rem 3rem;
+        }
+
+        .logotype img {
+            height: 55px;
+        }
+
+        .logotype .title {
+            font-size: 1.8rem;
+        }
+
+        .links .item {
+            font-size: 1.4rem;
+        }
+    }
+
+    /* Laptop (992px - 1199px) */
+    @media (max-width: 1199px) and (min-width: 992px) {
+        .Footer {
+            margin: 7rem 2.5rem 2rem 2.5rem;
+            gap: 1.8rem;
+        }
+
+        .logotype img {
+            height: 50px;
+        }
+
+        .logotype .title {
+            font-size: 1.6rem;
+        }
+
+        .links {
+            gap: 1.5rem;
+        }
+
+        .links .item {
+            font-size: 1.3rem;
+        }
+
+        .left {
+            gap: 1.5rem;
+        }
+
+        .left .text,
+        .right .potent {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* Tablet Landscape (768px - 991px) */
+    @media (max-width: 991px) and (min-width: 768px) {
+        .Footer {
+            margin: 6rem 2rem 2rem 2rem;
+            gap: 1.5rem;
+        }
+
+        .logotype img {
+            height: 45px;
+        }
+
+        .logotype .title {
+            font-size: 1.5rem;
+        }
+
+        .links {
+            gap: 1.5rem;
+        }
+
+        .links .item {
+            font-size: 1.2rem;
+        }
+
+        .Copyright {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .right .potent {
+            text-align: left;
+        }
+
+        .left {
+            gap: 1.5rem;
+        }
+
+        .left .text,
+        .right .potent {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Tablet Portrait (576px - 767px) */
+    @media (max-width: 767px) and (min-width: 576px) {
+        .Footer {
+            margin: 5rem 1.5rem 1.5rem 1.5rem;
+            gap: 1.5rem;
+        }
+
+        .logotype {
+            gap: 0.8rem;
+        }
+
+        .logotype img {
+            height: 40px;
+        }
+
+        .logotype .title {
+            font-size: 1.3rem;
+        }
+
+        .links {
+            gap: 1.2rem;
+        }
+
+        .links .item {
+            font-size: 1.1rem;
+        }
+
+        .Copyright {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .right .potent {
+            text-align: left;
+        }
+
+        .left {
+            gap: 1.2rem;
+        }
+
+        .left .text,
+        .right .potent {
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Mobile Large (480px - 575px) */
+    @media (max-width: 575px) and (min-width: 480px) {
+        .Footer {
+            margin: 4rem 1.2rem 1.5rem 1.2rem;
+            gap: 1.3rem;
+        }
+
+        .logotype {
+            gap: 0.7rem;
+        }
+
+        .logotype img {
+            height: 35px;
+        }
+
+        .logotype .title {
+            font-size: 1.2rem;
+        }
+
+        .links {
+            gap: 1rem;
+        }
+
+        .links .item {
+            font-size: 1rem;
+        }
+
+        .Copyright {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .right .potent {
+            text-align: left;
+        }
+
+        .left {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .left .text,
+        .right .potent {
+            font-size: 0.8rem;
+        }
+    }
+
+    /* Mobile Medium (375px - 479px) */
+    @media (max-width: 479px) and (min-width: 375px) {
+        .Footer {
+            margin: 3.5rem 1rem 1.5rem 1rem;
+            gap: 1.2rem;
+        }
+
+        .logotype {
+            gap: 0.6rem;
+        }
+
+        .logotype img {
+            height: 32px;
+        }
+
+        .logotype .title {
+            font-size: 1.1rem;
+        }
+
+        .links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .links .item {
+            font-size: 0.95rem;
+        }
+
+        .Copyright {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .right .potent {
+            text-align: left;
+        }
+
+        .left {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .left .text,
+        .right .potent {
+            font-size: 0.75rem;
+        }
+    }
+
+    /* Mobile Small (320px - 374px) */
+    @media (max-width: 374px) {
+        .Footer {
+            margin: 3rem 0.75rem 1.5rem 0.75rem;
+            gap: 1rem;
+        }
+
+        .logotype {
+            gap: 0.5rem;
+        }
+
+        .logotype img {
+            height: 28px;
+        }
+
+        .logotype .title {
+            font-size: 1rem;
+        }
+
+        .links {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .links .item {
+            font-size: 0.9rem;
+        }
+
+        .Copyright {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .right .potent {
+            text-align: left;
+            font-size: 0.7rem;
+        }
+
+        .left {
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .left .text {
+            font-size: 0.7rem;
+        }
+    }
+</style>

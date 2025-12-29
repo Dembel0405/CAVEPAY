@@ -1,15 +1,26 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+	<meta name="generator" content={Astro.generator} />
+	<title>Astro Basics</title>
+</head>
+<body>
+<div class="container">
+	<Navbar />
+	<slot />
+	<Footer />
+</div>
+</body>
 </html>
 
 <style>
@@ -18,5 +29,101 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		font-family: "Lato", sans-serif;
+	}
+
+	.container {
+		padding: 15px;
+		background: linear-gradient(
+			180deg,
+			#e8eef5 0%,      /* светло-серебристо-голубой */
+			#f5f7fa 15%,     /* почти белый с синевой */
+			#d4dce8 30%,     /* серебристо-синий */
+			#f0f3f8 45%,     /* светлый */
+			#dce3ed 60%,     /* серебристо-голубой */
+			#f5f7fa 75%,     /* светлый */
+			#e0e7f0 90%,     /* серебристо-синий */
+			#f8f9fb 100%     /* почти белый */
+		);
+		margin: 0.5rem 14rem;
+		border-radius: 40px;
+	}
+
+	/* Responsive Design */
+
+	/* Extra Large Desktop (1920px+) */
+	@media (min-width: 1920px) {
+		.container {
+			margin: 0.75rem 18rem;
+			padding: 20px;
+			border-radius: 50px;
+		}
+	}
+
+	/* Large Desktop (1440px - 1919px) */
+	@media (max-width: 1919px) and (min-width: 1440px) {
+		.container {
+			margin: 0.5rem 12rem;
+		}
+	}
+
+	/* Desktop (1200px - 1439px) */
+	@media (max-width: 1439px) and (min-width: 1200px) {
+		.container {
+			margin: 0.5rem 8rem;
+		}
+	}
+
+	/* Laptop (992px - 1199px) */
+	@media (max-width: 1199px) and (min-width: 992px) {
+		.container {
+			margin: 0.5rem 4rem;
+			border-radius: 35px;
+		}
+	}
+
+	/* Tablet Landscape (768px - 991px) */
+	@media (max-width: 991px) and (min-width: 768px) {
+		.container {
+			margin: 0.5rem 2rem;
+			padding: 12px;
+			border-radius: 30px;
+		}
+	}
+
+	/* Tablet Portrait (576px - 767px) */
+	@media (max-width: 767px) and (min-width: 576px) {
+		.container {
+			margin: 0.5rem 1rem;
+			padding: 10px;
+			border-radius: 25px;
+		}
+	}
+
+	/* Mobile Large (480px - 575px) */
+	@media (max-width: 575px) and (min-width: 480px) {
+		.container {
+			margin: 0.5rem 0.75rem;
+			padding: 10px;
+			border-radius: 20px;
+		}
+	}
+
+	/* Mobile Medium (375px - 479px) */
+	@media (max-width: 479px) and (min-width: 375px) {
+		.container {
+			margin: 0.5rem 0.5rem;
+			padding: 8px;
+			border-radius: 20px;
+		}
+	}
+
+	/* Mobile Small (320px - 374px) */
+	@media (max-width: 374px) {
+		.container {
+			margin: 0.25rem 0.25rem;
+			padding: 8px;
+			border-radius: 15px;
+		}
 	}
 </style>
